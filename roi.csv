@@ -1,0 +1,16 @@
+activity,roi,type
+Business Intelligence,400,Government
+Business Intelligence,360,Private
+Business Intelligence,385,Non-Profit
+IT Hardware Upgrades,87,Government
+IT Hardware Upgrades,67,Private
+IT Hardware Upgrades,95,Non-Profit
+IT Software Upgrades,92,Government
+IT Software Upgrades,87,Private
+IT Software Upgrades,73,Non-Profit
+Process Improvement,257,Government
+Process Improvement,306,Private
+Process Improvement,215,Non-Profit
+Strategic Planning,54,Government
+Strategic Planning,24,Private
+Strategic Planning,68,Non-Profit

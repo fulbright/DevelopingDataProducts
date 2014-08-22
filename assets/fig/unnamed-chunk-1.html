@@ -1,0 +1,163 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://nvd3.org/assets/css/nv.d3.css'>
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rCharts_nvd3_tests/libraries/widgets/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='http://nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body>
+    <div id='chart6304cad7a64' class='rChart nvd3'></div>  
+    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart6304cad7a64()
+    });
+    function drawchart6304cad7a64(){  
+      var opts = {
+ "dom": "chart6304cad7a64",
+"width":    800,
+"height":    400,
+"x": "activity",
+"y": "roi",
+"group": "type",
+"type": "multiBarChart",
+"id": "chart6304cad7a64" 
+},
+        data = [
+ {
+ "activity": "Business Intelligence",
+"roi": 400,
+"type": "Government" 
+},
+{
+ "activity": "Business Intelligence",
+"roi": 360,
+"type": "Private" 
+},
+{
+ "activity": "Business Intelligence",
+"roi": 385,
+"type": "Non-Profit" 
+},
+{
+ "activity": "IT Hardware Upgrades",
+"roi": 87,
+"type": "Government" 
+},
+{
+ "activity": "IT Hardware Upgrades",
+"roi": 67,
+"type": "Private" 
+},
+{
+ "activity": "IT Hardware Upgrades",
+"roi": 95,
+"type": "Non-Profit" 
+},
+{
+ "activity": "IT Software Upgrades",
+"roi": 92,
+"type": "Government" 
+},
+{
+ "activity": "IT Software Upgrades",
+"roi": 87,
+"type": "Private" 
+},
+{
+ "activity": "IT Software Upgrades",
+"roi": 73,
+"type": "Non-Profit" 
+},
+{
+ "activity": "Process Improvement",
+"roi": 257,
+"type": "Government" 
+},
+{
+ "activity": "Process Improvement",
+"roi": 306,
+"type": "Private" 
+},
+{
+ "activity": "Process Improvement",
+"roi": 215,
+"type": "Non-Profit" 
+},
+{
+ "activity": "Strategic Planning",
+"roi": 54,
+"type": "Government" 
+},
+{
+ "activity": "Strategic Planning",
+"roi": 24,
+"type": "Private" 
+},
+{
+ "activity": "Strategic Planning",
+"roi": 68,
+"type": "Non-Profit" 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .x(function(d) { return d[opts.x] })
+          .y(function(d) { return d[opts.y] })
+          .width(opts.width)
+          .height(opts.height)
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+  </body>
+</html>
